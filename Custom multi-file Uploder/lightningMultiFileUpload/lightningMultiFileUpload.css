@@ -1,0 +1,10 @@
+.spinner-msg {
+  position: absolute;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - -50px));
+  font-size: medium;
+  color: #076abf;
+  width: 30vw;
+}

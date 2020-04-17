@@ -1,0 +1,37 @@
+<template>
+    <div class="container">
+        <div if:true={isSpinner}>
+            <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+            </lightning-spinner>
+            <div class="spinner-msg">
+                <!-- {spinnerMessage} -->
+                <div>
+                    {fileName} 
+                    <div style="float: right;">{percent}%</div>
+                </div> 
+                <lightning-progress-bar value={percent} size="large" variant="circular"></lightning-progress-bar>
+            </div>
+        </div>
+
+        <div class="main" style="display: inline-flex;">
+            <div>
+                <lightning-input label="Document" variant="label-hidden" name="Multi File Uploader"
+                    onchange={handleFilesChange} type="file" multiple>
+                </lightning-input>
+            </div>
+            <div class="slds-m-left_x-large">
+                <lightning-button label="Submit" onclick={handleSave} variant="brand"></lightning-button>
+            </div>
+        </div>
+
+        <div class="slds-m-top--medium">
+            <dl class="slds-list_stacked" if:true={fileNamesList}>
+                <template for:each={fileNamesList} for:item="file">
+                    <dt key={file.serialNumber} class="slds-item_label slds-text-color_weak slds-truncate">
+                        {file.serialNumber}: {file.name}</dt>
+                </template>
+            </dl>
+        </div>
+    </div>
+
+</template>
